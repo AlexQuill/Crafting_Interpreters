@@ -3,7 +3,7 @@ Interpreter for Robert Nystrom's hobby language Lox, written in Java, as describ
 
 In directory
 ```
-jlox
+jlox_v1/jlox
 ```
 
 Compile with:
