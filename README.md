@@ -15,3 +15,14 @@ Execute with:
 ```
 Java -cp .. jlox.Lox
 ```
+
+To Generate AST subclasses, go to directory:
+```
+jlox_v1/tool
+```
+and compile. 
+
+Execute with:
+```
+Java -cp .. tool.GenerateAst ../jlox
+```
