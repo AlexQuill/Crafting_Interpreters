@@ -25,6 +25,7 @@ public class Lox {
     private static void runFile(String path) throws IOException {
         byte[] bytes = Files.readAllBytes(Paths.get(path)); // read full file into byte array
         run(new String(bytes, Charset.defaultCharset())); // convert bytes to string and run that file
+
         // this is not async. We scan the whole thing, then check for hadError, and exit 
         if (hadError) System.exit(65);
     }
@@ -44,8 +45,17 @@ public class Lox {
     }
 
     private static void run(String source) {
-        Scanner scanner = new Scanner(source); // we will develop this later
-        List<Token> tokens = scanner.scanTokens(source);
+        Scanner scanner = new Scanner(source); // class converts files to lexemes
+        List<Token> tokens = scanner.scanTokens(source); // return list of tokens
+
+
+        /*
+         * Token class
+         * Type: "PAREN"
+         * Lexeme: text
+         * literal: If it's a variable, string, or num, store what that is here
+         * line: line in file that the token is on
+         */
 
         for (Token token : tokens) {
             System.out.printf("Type: %s Lexeme: %s\n", token.type.toString(), token.lexeme.toString());
